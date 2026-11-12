@@ -1,0 +1,9 @@
+{
+  "browser": { "mode": "launch", "executable_path": "/usr/bin/chromium" },
+  "start_url": { "url": "https://higgsfield.ai/" },
+  "environment": { "service_workers": "allow", "viewport": { "width": 1440, "height": 1000 } },
+  "actions": [
+    { "step_id": "settle", "action": "wait_for_timeout", "duration_ms": 2000 }
+  ],
+  "capture": { "at_end": ["accessibility", "dom", "url"] }
+}

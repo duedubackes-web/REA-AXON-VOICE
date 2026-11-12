@@ -14,7 +14,8 @@
     "start": "eve start",
     "typecheck": "tsc",
     "test": "node --experimental-strip-types --test tests/*.test.ts",
-    "demo": "node --experimental-strip-types scripts/demo.ts"
+    "demo": "node --experimental-strip-types scripts/demo.ts",
+    "demo:credits": "node --experimental-strip-types scripts/demo-credits.ts"
   },
   "dependencies": {
     "@vercel/connect": "2.7.0",

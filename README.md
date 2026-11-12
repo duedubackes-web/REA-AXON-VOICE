@@ -15,6 +15,7 @@ Não é o servidor Grockbot, um clone completo da sua interface ou uma integraç
 - Separar tarefas locais concluídas de renderização, revisão e exportação bloqueadas.
 - Manter estado por sessão usando o mecanismo de estado do Eve e verificar o dono do workspace nas ferramentas.
 - Adaptador de contrato para GET/POST de tarefas no Grockbot, com validação de resposta e transporte autorizado injetado pelo aplicativo hospedeiro.
+- Núcleo local de trabalhos e créditos: cotação versionada, reserva, estados, tratamento de timeout e diagnóstico. Não movimenta dinheiro real nem se conecta a um motor de mídia.
 
 O adaptador não está exposto ao modelo até que haja autenticação de servidor e registro persistente de operações. Uma escrita com resposta perdida permanece de resultado desconhecido e não recebe retry automático.
 
@@ -27,9 +28,11 @@ npm ci
 npm test
 npm run typecheck
 npm run demo
+npm run demo:credits
 ```
 
 A demo cria um projeto com referência fictícia e prepara seu checklist; não usa modelo nem faz chamadas externas.
+A demo de créditos simula reserva, timeout, resultado tardio e notificação duplicada. Seus valores são fictícios e não movimentam créditos reais.
 
 Para conversar com o agente, configure acesso ao modelo pelo procedimento de login do Eve e rode `npm run dev`. O modelo do scaffold foi preservado. Credenciais devem ficar na configuração de servidor apropriada, nunca em prompts ou no Git.
 
@@ -49,3 +52,5 @@ Higgsfield e Flow não estão conectados. `request_render` apenas verifica a pro
 O canal padrão preserva autenticação do framework: desenvolvimento local e OIDC quando configurado; não foi habilitado acesso anônimo em produção. Ferramentas genéricas de shell, edição de arquivos e delegação foram desabilitadas no agente de produto.
 
 Veja `docs/INVESTIGACAO-GROCKBOT.md` para fontes, evidências e limites. Não houve teste end-to-end com LLM ou escrita no Grockbot.
+
+O estudo `docs/INVESTIGACAO-HIGGSFIELD.md` cruza evidências REA, relatos públicos e políticas oficiais com prioridades e critérios de aceite. O núcleo `agent/lib/render-jobs.ts` implementa parte desses contratos de forma pura e testável; sua integração com banco transacional, cotação real e callbacks autenticados está pendente.
