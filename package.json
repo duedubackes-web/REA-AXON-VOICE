@@ -1,0 +1,35 @@
+{
+  "name": "rea-axon-voice",
+  "version": "0.0.0",
+  "type": "module",
+  "imports": {
+    "#*": "./agent/*",
+    "#evals/*": "./evals/*"
+  },
+  "scripts": {
+    "build": "eve build",
+    "deploy": "eve deploy",
+    "dev": "eve dev",
+    "eval": "eve eval",
+    "start": "eve start",
+    "typecheck": "tsc",
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "demo": "node --experimental-strip-types scripts/demo.ts",
+    "demo:credits": "node --experimental-strip-types scripts/demo-credits.ts",
+    "build:commercial": "node scripts/build-commercial.mjs"
+  },
+  "dependencies": {
+    "@vercel/connect": "2.7.0",
+    "ai": "^7.0.137",
+    "eve": "^1.0.0-rc.10",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "24.x",
+    "esbuild": "0.28.2",
+    "typescript": "7.0.2"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}
