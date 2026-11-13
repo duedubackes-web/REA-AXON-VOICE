@@ -1,0 +1,10 @@
+import { build } from 'esbuild';
+import { mkdir, copyFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../web/commercial');
+const output = path.join(root, 'dist');
+await mkdir(output, { recursive: true });
+await build({ entryPoints: [path.join(root, 'app.mjs')], bundle: true, format: 'esm', platform: 'browser', target: 'es2022', outfile: path.join(output, 'app.js'), minify: true, sourcemap: false, legalComments: 'eof' });
+await Promise.all(['index.html', 'style.css'].map(name => copyFile(path.join(root, name), path.join(output, name))));
+console.log('Painel comercial compilado: web/commercial/dist');

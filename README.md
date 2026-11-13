@@ -54,3 +54,11 @@ O canal padrão preserva autenticação do framework: desenvolvimento local e OI
 Veja `docs/INVESTIGACAO-GROCKBOT.md` para fontes, evidências e limites. Não houve teste end-to-end com LLM ou escrita no Grockbot.
 
 O estudo `docs/INVESTIGACAO-HIGGSFIELD.md` cruza evidências REA, relatos públicos e políticas oficiais com prioridades e critérios de aceite. O núcleo `agent/lib/render-jobs.ts` implementa parte desses contratos de forma pura e testável; sua integração com banco transacional, cotação real e callbacks autenticados está pendente.
+
+## Painel comercial do piloto
+
+Interface privada para registrar briefings, preparar propostas com custos e margem, exportar o documento do cliente, informar recebimentos e acompanhar produção, revisão e entrega. Os dados ficam neste navegador e podem ser exportados/importados por backup. Recebimentos são registros manuais; não há cobrança nem verificação bancária.
+
+Fonte em `web/commercial/`. Compile com `npm run build:commercial`; a saída fica em `web/commercial/dist/`. Veja `docs/PILOTO-COMERCIAL.md` para oferta hipotética, roteiro de validação e limites de uso. O backend de agente continua independente dessa interface local; não há sincronização entre os dois nesta etapa.
+
+Painel privado publicado: https://axon-voice-comercial-nov26.sunshinycroissant1.chatgpt.site

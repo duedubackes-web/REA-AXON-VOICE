@@ -16,6 +16,7 @@
     "agent/**/*.ts",
     "evals/**/*.ts",
     "tests/**/*.ts",
-    "scripts/**/*.ts"
+    "scripts/**/*.ts",
+    "web/commercial/src/**/*.ts"
   ]
 }
